@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="Tue, 01, Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content ="no-cache"/>
+ 
+<head>
+ 
+ 	<title>Python Tweet Explorer App</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ 
+ 
+</head>
+
+<body style="overflow:auto">
+	<div class="container" style="overflow:hidden;max-width:80%">
+        <div class="header">
+        </div>
+        <div class="jumbotron">
+	        <h2>Exploring Tweets</h2>
+	        <h3>Enter a search term below to find related tweets!</h3>
+	        <p class="lead"></p>
+	        <form action="/search" method="post">
+	            <input type="radio" name="searchType" value="explore">Exploratory</input>
+	            <input type="radio" name="searchType" value="drill">Drill down</input>
+	            <input type="radio" name="searchType" value="lateral">Lateral</input>
+	            <input type="radio" name="searchType" value="everything" checked="checked">Everything </input>
+	            <input type="text" name="searchTerm"></input>
+	        </form>
+
+    	</div>
+    	<div class="header">
+        </div>
+        <div class="row marketing">
+        	<div class="col-lg-7">
+				<img src="images/{{filename}}" align="middle">
+			</div>
+			<div class="col-lg-5" style="padding:0px;margin:0px;position:relative;overflow-y:scroll;max-height:400px">
+				<h4 style="margin:0px;padding:0px"> Relevant Synonyms </h4>
+					<p style="padding:10px">{{syns}}</p>
+				<hr style="border: 1px solid #e6e6e6"/>
+				<h4 style="margin:0px;padding:0px"> Relevant Hyponyms </h4>
+					<p style="padding:10px">{{hyper}}</p>
+				<hr style="border: 1px solid #e6e6e6"/>
+				<h4 style="margin:0px;padding:0px"> Relevant Hypernyms </h4>
+					<p style="padding:10px">{{hypo}} </p>
+			</div>
+		</div>
+		<div class="header" style="margin:0px;padding:0px">
+        </div>
+		<div class="col-lg-1">
+				<h4>Rank</p>
+		</div>
+		<div class="col-lg-11">
+				<h4>Tweet</p>
+		</div>
+		<div class="row marketing" style="height:500px;overflow:auto">
+
+			{% for item in data %}
+				<div class="col-lg-1">
+					<p>{{loop.index}}</p>
+				</div>
+				<div class="col-lg-11">
+					<p>{{item}}</p>
+				</div>
+				<hr style="border: 1px solid #e6e6e6"/>
+			{% endfor %}
+		</div>	
+        <footer class="footer">
+            <p>&copy; SeanTom 2015</p>
+        </footer>
+	</div>
+
+</body>
+ 
+</html>

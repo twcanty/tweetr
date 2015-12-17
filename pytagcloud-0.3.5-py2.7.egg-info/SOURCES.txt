@@ -1,0 +1,9 @@
+pytagcloud/__init__.py
+pytagcloud/colors.py
+pytagcloud.egg-info/PKG-INFO
+pytagcloud.egg-info/SOURCES.txt
+pytagcloud.egg-info/dependency_links.txt
+pytagcloud.egg-info/top_level.txt
+pytagcloud/lang/__init__.py
+pytagcloud/lang/counter.py
+pytagcloud/lang/stopwords.py

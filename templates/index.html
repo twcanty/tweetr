@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Python Tweet Explorer App</title>
+ 
+ 
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ 
+ 
+</head>
+ 
+<body>
+ 
+    <div class="container" style="max-width:80%">
+        <div class="header">
+            <nav>
+            </nav>
+        </div>
+ 
+        <div class="jumbotron">
+            <h2>Exploring Tweets</h2>
+            <h3>Enter a search term below to find related tweets!</h3>
+            <p class="lead"></p>
+            <form action="/search" method="post">
+                <input type="radio" name="searchType" value="explore">Exploratory</input>
+                <input type="radio" name="searchType" value="drill">Drill down</input>
+                <input type="radio" name="searchType" value="lateral">Lateral</input>
+                <input type="radio" name="searchType" value="everything" checked="checked">Everything</input>
+                <input type="text" name="searchTerm"></input>
+            </form>
+
+        </div>
+ 
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <h4>Exploratory</h4>
+                <p>This will search for all tweets containing hypernyms of your search term. If you search for "orange," "fruit" is a hypernym of orange.</p>
+
+                <h4>Lateral</h4>
+                <p>This will search for all tweets containing synonyms of your search term.</p>
+
+            </div>
+ 
+            <div class="col-lg-6">
+                <h4>Drill Down</h4>
+                <p>This will search for all tweets containing hyponyms of your search term. If you search for "fruit," "orange" is a hyponym of fruit.</p>
+                
+                <h4>Everything</h4>
+                <p>This will combine all three options listed above! Only for the truly adventurous data explorers!</p>
+            </div>
+        </div>
+ 
+        <footer class="footer">
+            <p>&copy; SeanTom 2015</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>

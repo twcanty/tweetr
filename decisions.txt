@@ -1,0 +1,33 @@
+1. Decision to rank tweets as well as create a tag cloud. Looking at the words that compose tweets is not particularly effective given how random tweets are (though shouldn't be given the aim of our project) and how short they are as well.
+
+2. Remove all punctuation. (Made interfacing with API's easier, we found that checking to see if a given word is in a synset in wordnet is a good way of validating a word. This also allows us to remove usernames which is nice.)
+
+3. hypernym --> explore the data. hyponym --> depth (choosing to include original word so most of results are focused on that). synonym --> breadth (original word already included)
+
+4. Ideally you don't want a user to have to specify a particular sense of a search term, but this is almost impossible to infer, so you can get results that make sense but aren't relevant.
+
+5. We decided not to use similarity comparisons for synsets and instead take all lemmas as that proved to be more effective.
+
+6. Wordclouds are created by counting the appearances of synonyms, hyponyms, hypernyms and the search term in resulting tweets. This gives the user actionable feedback in terms of making a next search, and produces a wordcloud with less 'clutter' and 'noise' than if we were to look at all words in all tweets
+
+7. certain explore tweets can get interesting results if a hyp(er/o)nym is super popular and thus has too much weight. possible to adjust using similarity? but not great results before. explore our ranking. can look at less weight for hypernym (as less related usually)
+
+8. Possible improvement could be moving up x number of levels to get more hypernyms or down x number of levels to get more hypernyms. Examples of different results can be discussed in the write-up if we feel like it
+
+9. Wordnet is not easily made threadsafe so we had to find other areas to optimize
+
+10. For indexing, choose to include geospatial and temporal data to make a more robust system. Our fault in the implementation was indexing things and then realizing they were capped at 1000. DId not have enough time/resources to rebuild the index to also include geospatial and temporal data. If we were to include it
+
+11. Original idea -- get a search terms asssociated synset. For each word in the synset, grab the synset of the word and compare similarity to the original synset. Can then bring up the similarity metrics. Ultimately too slow with not great results to be useful. Instead we use Lemmas of a synset to get synonyms
+
+12. Decision to not stem
+
+13. Amazon cloudsearch uses stop words (not possible to get relevant tweets using stop words so no point in searching from them)
+
+14. Decision to hash image name so we can get constantly updating word clouds
+
+
+TODO:
+clear results in between searches (things staying cached?)
+normalize wordcloud so it makes sense
+change rankings (include all words -- hypo/hyper and synonyms for ranking tweets... but still not for wordcloud)

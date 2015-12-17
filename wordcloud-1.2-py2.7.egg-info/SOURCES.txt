@@ -1,0 +1,9 @@
+test/test_wordcloud.py
+wordcloud/__init__.py
+wordcloud/color_from_image.py
+wordcloud/query_integral_image.c
+wordcloud/wordcloud.py
+wordcloud.egg-info/PKG-INFO
+wordcloud.egg-info/SOURCES.txt
+wordcloud.egg-info/dependency_links.txt
+wordcloud.egg-info/top_level.txt
